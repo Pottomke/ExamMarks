@@ -2,6 +2,8 @@ package Pages;
 
 import org.openqa.selenium.WebDriver;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -32,6 +34,12 @@ public class Utils {
         } catch (Exception e) {
             System.out.println("An error occurred.");
         }
+    }
+
+    public void makeEmpty(String fileName) throws FileNotFoundException {
+        PrintWriter writer = new PrintWriter(fileName);
+        writer.print("");
+        writer.close();
     }
 
 }

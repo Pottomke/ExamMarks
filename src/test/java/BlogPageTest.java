@@ -1,4 +1,5 @@
 import Pages.BlogPage;
+import Pages.Utils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
@@ -56,14 +57,18 @@ public class BlogPageTest {
     @DisplayName("getHeadingsToFileWithPagination")
     public void headingsToFileWithPaginationTest() throws IOException {
         BlogPage bp = new BlogPage(driver);
-        bp.navigate();
+        Utils u = new Utils(driver);
 
+        String fileName = "AllHeadingsFromPage.txt";
+
+        bp.navigate();
+        u.makeEmpty(fileName);
         while(true){
             if(!bp.isButtonThere(bp.nextLink)){
-                bp.saveHeadings("AllHeadingsFromPage.txt");
+                bp.saveHeadings(fileName);
                 bp.clickNextLink();
             }
-            bp.saveHeadings("AllHeadingsFromPage.txt");
+            bp.saveHeadings(fileName);
             break;
         }
 
