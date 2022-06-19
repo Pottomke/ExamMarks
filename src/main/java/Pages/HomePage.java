@@ -30,6 +30,8 @@ public class HomePage {
     private final By lusern = By.xpath("//*[@id=\"email\"]");
     private final By lpw = By.xpath("//*[@id=\"password\"]");
     private final By loginB = By.xpath("//*[@onclick=\"myFunction()\"]");
+    //PROFILE
+    private final By profileB = By.xpath("//*[@id=\"profile-btn\"]");
     //LOGOUT
     private final By logout = By.xpath("//*[@id=\"logout-link\"]");
 
@@ -119,6 +121,10 @@ public class HomePage {
         driver.findElement(lusern).sendKeys(userName);
         driver.findElement(lpw).sendKeys(pwd);
         driver.findElement(loginB).click();
+    }
+
+    public void goToProfile(){
+        driver.findElement(profileB).click();
     }
 
     public boolean isLogout(){
